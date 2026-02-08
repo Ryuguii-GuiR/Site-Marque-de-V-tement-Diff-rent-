@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Different — Concept</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #ffffff;
+      --text-muted: #7a7a7a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 70px;
+  border-bottom: 1px solid #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  /* Nouvelle partie */
+  background-image: url('fond groslay.png'); /* ton image ici */
+  background-size: cover;       /* couvre tout le header */
+  background-position: center;  /* centre l'image */
+  background-repeat: no-repeat; /* pas de répétition */
+}
+
+    
+
+   .hero {
+  padding: 120px 80px 60px; /* espace suffisant pour le header */
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+    .logo img {
+      height: 120px;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgb(255, 255, 255);
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 90px 80px 60px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+    }
+
+    .hero a {
+      padding: 14px 34px;
+      border: 2px solid black;
+      text-decoration: none;
+      font-weight: 600;
+      color: black;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .categories {
+      display: flex;
+      gap: 40px;
+      padding: 30px 80px;
+      border-bottom: 1px solid #e5e5e5;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .products {
+      padding: 70px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 60px 40px;
+    }
+
+    .product {
+      text-align: left;
+    }
+
+    .product-image {
+  background: #f5f5f5;
+  border-radius: 5px;
+
+  padding: 0; /* 🔑 SUPPRIME TOUT ESPACE */
+  overflow: hidden; /* 🔑 COUPE TOUT */
+
+  display: flex; /* 🔑 */
+  align-items: stretch; /* 🔑 */
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    0 6px 14px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+
+    
+
+    .product-image:hover {
+      transform: translateY(-10px);
+      box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.18),
+        0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .product-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* 🔑 SUPPRIME LE BLANC EN BAS */
+}
+
+    .product h3 {
+      font-size: 0.95rem;
+      margin: 14px 0 4px;
+      font-weight: 600;
+    }
+
+    .product p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      padding: 40px 80px;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== T-SHIRT COLORS ===== */
+.product-image.tshirt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-image.tshirt img.active {
+  opacity: 1;
+}
+
+/* pastilles */
+.colors {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.color.black { background: #000; }
+.color.white { background: #fff; }
+
+
+/* ===== BADGE NOUVEAU ===== */
+.product-image {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  size: 200px;
+  top: 12px;
+  left: 12px;
+
+  background: rgb(255, 2, 2);
+  color: rgb(252, 243, 221);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  padding: 6px 10px;
+  border-radius: 20px;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===== MULTI IMAGES HOVER ===== */
+.hover-images {
+  position: relative;
+}
+
+.hover-images img {
+  width: 100%;
+  display: block;
+}
+
+.hover-images .img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hover-images:hover .img-hover {
+  opacity: 1;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-image img {
+  pointer-events: none;
+}
+
+
+.product-image.tshirt {
+  position: relative; /* déjà présent normalement */
+  height: 463px;      /* fixe la hauteur pour uniformiser tous les produits */
+}
+
+.product-image.tshirt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-image.tshirt img.active {
+  opacity: 1; /* Seule l'image active est visible */
+}
+
+.product-image.tshirt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.product-image.tshirt img:not(.active) {
+  opacity: 0;
+}
+
+.product-image.tshirt img.hover-img {
+  opacity: 0;
+}
+
+.product-image.tshirt:hover img.active + .hover-img {
+  opacity: 1;
+}
+
+.categories div {
+  cursor: pointer; /* rend le texte "cliquable" */
+}
+
+.categories {
+  display: flex;
+  gap: 40px;
+  padding: 30px 80px;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.categories div {
+  cursor: pointer;
+}
+
+/* ===== HEADER ANIMATION PRO ===== */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 22px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* IMAGE */
+  background-image: url("fond groslay.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 1000;
+  transition: padding 0.4s ease;
+}
+
+
+/* logo */
+header .logo img {
+  height: 120px;
+  transition: height 0.4s ease;
+}
+
+/* nav */
+header nav {
+  display: flex;
+  gap: 28px;
+  transition: gap 0.4s ease;
+}
+
+/* état scroll = tout se compacte */
+header.scrolled {
+  padding: 12px 70px;
+}
+
+header.scrolled .logo img {
+  height: 90px;
+}
+
+header.scrolled nav {
+  gap: 18px;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="logo">
+    <img src="Nouveau projet (5).png" alt="Different logo">
+  </div>
+  <nav>
+    <a href="1.html">Collaboration</a>
+    <a href="2.html">A propos</a>
+    <a href="3.html">Actu</a>
+    <a href="4.html">Contact</a>
+  </nav>
+</header>
+
+
+</header>
+
+<section class="hero">
+  <h1>Different.<br>Mais on est les mêmes.</h1>
+  <p>Marque indépendante. Sponsor officiel du FC GROSLAY.</p>
+  <a href="#products">Voir notre collection</a>
+</section>
+
+<section class="categories">
+  <div >Cagoule</div>
+  <div >T-Shirts</div>
+  <div >Sweat</div>
+  <div>Veste</div>
+</section>
+
+
+<section class="products" id="products">
+
+ <a href="cagoule-different.html" class="product-link"  >
+  <div class="product" data-type="cagoule" >
+    <div class="product-image hover-images">
+      <img src="site cagoule 1.png" class="img-main">
+      <img src="site cagoule 2.png" class="img-hover">
+    </div>
+    <h3>Cagoule Different</h3>
+    <p>Collection MELM</p>
+  </div>
+</a>
+
+
+<div class="product" data-type="tshirt" >
+  <a href="t-shirt-different-Mlem.html" class="product-link" >
+    <div class="product-image tshirt">
+      <img src="site tshirt blanc 1.png" class="active" data-color="blanc">
+      <img src="site tshirt blanc 2.png" class="hover-img" data-color="blanc">
+      <img src="site tshirt noir 1.png" data-color="noir">
+      <img src="site tshirt noir 2.png" class="hover-img" data-color="noir">
+    </div>
+    <h3>T-Shirt Different</h3>
+    <p>Collection MELM</p>
+  </a>
+
+  <div class="colors">
+    <span class="color white" data-color="blanc"></span>
+    <span class="color black" data-color="noir"></span>
+  </div>
+</div>
+
+
+
+
+
+ <a href="sweat-different-MLEM.html" class="product-link" >
+  <div class="product" data-type="sweat" >
+    <div class="product-image hover-images">
+      <img src="site pull 1.png" class="img-main" alt="">
+      <img src="site pull 2.png" class="img-hover" alt="">
+    </div>
+    <h3>Sweat Different</h3>
+    <p>Collection MELM</p>
+  </div>
+</a>
+
+  
+<a href="veste-different-world.html" class="product-link" >
+  <div class="product" >
+    <div class="product-image hover-images">
+      <span class="badge">Nouveau</span>
+      <img src="site veste 1.png" class="img-main" alt="">
+      <img src="site veste 2.png" class="img-hover" alt="">
+    </div>
+    <h3>Zip Different</h3>
+    <p>World Collection</p>
+  </div>
+</a>
+
+
+   <a href="t-shirt-world-different.html" class="product-link" >
+  <div class="product" data-type="tshirt">
+  <div class="product-image hover-images">
+      <span class="badge">Nouveau</span>
+      <img src="site tshirt noir world 2.png" class="img-main" alt="">
+      <img src="site tshirt noir world 1.png" class="img-hover" alt="">
+    </div>
+    <h3>T-Shirt World</h3>
+    <p>World Collection</p>
+  </div>
+</a>
+
+<footer>
+  © 2025 DIFFERENT — Concept website  
+  <div>
+
+  </div> 
+  <nav>
+    <a href="admin.html">Admin Log In ONLY
+        </a>
+  
+</footer>
+
+</body>
+
+<script>
+c
+
+</script>
+
+<script>
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
+
+
+<script>
+document.querySelectorAll('.product-image.tshirt').forEach(productImage => {
+  const colors = productImage.closest('.product').querySelectorAll('.color');
+  const images = productImage.querySelectorAll('img');
+
+  colors.forEach(color => {
+    color.addEventListener('click', e => {
+      e.stopPropagation();
+      const selected = color.dataset.color;
+
+      images.forEach(img => {
+        if (img.dataset.color === selected) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+    });
+  });
+});
+
+</script>
+
+
+</html>

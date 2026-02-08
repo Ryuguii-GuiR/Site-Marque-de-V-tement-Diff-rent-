@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweat Different — MELM</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body { margin:0; font-family:'Poppins',sans-serif; background:#fff; color:#000; }
+
+/* HEADER sticky */
+header { position: sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:22px 70px; background-image:url("fond groslay.png"); background-size:cover; background-position:center; background-repeat:no-repeat; transition: padding 0.4s ease; }
+header.scrolled { padding:12px 70px; }
+.logo img { height:120px; transition: height 0.4s ease; }
+header.scrolled .logo img { height:90px; }
+nav { display:flex; gap:28px; transition: gap 0.4s ease; }
+header.scrolled nav { gap:18px; }
+nav a { text-decoration:none; font-size:0.9rem; font-weight:600; color:#fff; text-transform:uppercase; }
+
+/* PRODUCT PAGE */
+.product-page { max-width:1100px; margin:80px auto; padding:0 40px; display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+.product-images img { width:100%; border-radius:6px; margin-bottom:20px; background:#f5f5f5; }
+.thumbnails { display:flex; gap:12px; margin-top:10px; }
+.thumbnails img { width:80px; height:100px; object-fit:cover; cursor:pointer; border-radius:4px; border:2px solid transparent; background:#f5f5f5; transition:border 0.2s, opacity 0.2s; }
+.thumbnails img:hover { border:2px solid #000; opacity:0.8; }
+
+.product-info h1 { font-size:2.4rem; margin-bottom:10px; }
+.collection { font-size:0.85rem; text-transform:uppercase; color:#7a7a7a; margin-bottom:10px; }
+.description { font-size:0.9rem; line-height:1.6; margin-bottom:30px; }
+.details { border-top:1px solid #e5e5e5; padding-top:25px; }
+.details h3 { font-size:0.9rem; margin-bottom:15px; text-transform:uppercase; }
+.details ul { list-style:none; padding:0; font-size:0.85rem; color:#444; }
+.details li { margin-bottom:8px; }
+
+@media(max-width:900px){ .product-page { grid-template-columns:1fr; } }
+
+/* Prix et bouton */
+.price { font-size: 1.2em; font-weight: bold; margin: 8px 0; }
+.drop-button { padding: 10px 20px; background-color: #ffd95b; color: #000; border: none; font-weight: bold; border-radius: 5px; cursor: pointer; }
+.drop-button:hover { background-color: #fad9457e; }
+
+/* Popup */
+.popup { display:none; position: fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000; }
+.popup-content { background-color:#fff; padding:20px; text-align:center; border-radius:10px; position:relative; }
+.popup-content img { max-width:200px; margin-top:10px; }
+.close { position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo"><img src="Nouveau projet (5).png" alt="Different logo"></div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="1.html">Collaborations</a>
+    <a href="3.html">Actu</a>
+    <a href="4.html">Contact</a>
+  </nav>
+</header>
+
+<section class="product-page">
+  <div class="product-images">
+    <img id="mainImage" src="site pull 1.png" alt="Sweat Different">
+    <div class="thumbnails">
+      <img src="site pull 1.png" onclick="changeImage(this)">
+      <img src="site pull 2.png" onclick="changeImage(this)">
+      <img src="site pull 0.png" onclick="changeImage(this)">
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h1>Sweat Different</h1>
+    <div class="collection">Collection MLEM</div>
+    <p class="price"><strong>€39.99</strong></p>
+    <button class="drop-button" onclick="openPopup()">Voir le drop</button>
+    <p class="description">Sweat Different au design minimaliste. Pensé pour durer, confortable et intemporel.</p>
+    <div class="details">
+      <h3>Caractéristiques</h3>
+      <ul>
+        <li>• ***% coton</li>
+        <li>• Grammage : *** g/m²</li>
+        <li>• Coupe Oversize</li>
+        <li>• Impression sérigraphie</li>
+        <li>• Fabriqué au **</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- POPUP QR CODE -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h3>Scanne le QR code pour accéder au drop !</h3>
+    <img src="IMG_1270.jpeg" alt="QR code Snapchat">
+  </div>
+</div>
+
+<script>
+function changeImage(thumbnail) { document.getElementById("mainImage").src = thumbnail.src; }
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{ header.classList.toggle('scrolled', window.scrollY>40); });
+function openPopup() { document.getElementById('popup').style.display='flex'; }
+function closePopup() { document.getElementById('popup').style.display='none'; }
+</script>
+</body>
+</html>
