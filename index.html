@@ -36,17 +36,17 @@
   top: 0;
   z-index: 1000;
   
-  /* Nouvelle partie */
-  background-image: url('fond groslay.png'); /* ton image ici */
-  background-size: cover;       /* couvre tout le header */
-  background-position: center;  /* centre l'image */
-  background-repeat: no-repeat; /* pas de répétition */
+
+  background-image: url('fond groslay.png'); 
+  background-size: cover;    
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
 
     
 
    .hero {
-  padding: 120px 80px 60px; /* espace suffisant pour le header */
+  padding: 120px 80px 60px; 
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -121,11 +121,11 @@
   background: #f5f5f5;
   border-radius: 5px;
 
-  padding: 0; /* 🔑 SUPPRIME TOUT ESPACE */
-  overflow: hidden; /* 🔑 COUPE TOUT */
+  padding: 0; 
+  overflow: hidden; 
 
-  display: flex; /* 🔑 */
-  align-items: stretch; /* 🔑 */
+  display: flex; 
+  align-items: stretch; 
 
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.12),
@@ -147,7 +147,7 @@
     .product-image img {
   width: 100%;
   height: auto;
-  object-fit: cover; /* 🔑 SUPPRIME LE BLANC EN BAS */
+  object-fit: cover; 
 }
 
     .product h3 {
@@ -168,7 +168,7 @@
       color: var(--text-muted);
     }
 
-    /* ===== T-SHIRT COLORS ===== */
+   
 .product-image.tshirt img {
   position: absolute;
   inset: 0;
@@ -183,7 +183,7 @@
   opacity: 1;
 }
 
-/* pastilles */
+
 .colors {
   display: flex;
   gap: 10px;
@@ -202,7 +202,6 @@
 .color.white { background: #fff; }
 
 
-/* ===== BADGE NOUVEAU ===== */
 .product-image {
   position: relative;
 }
@@ -226,7 +225,11 @@
   pointer-events: none;
 }
 
-/* ===== MULTI IMAGES HOVER ===== */
+
+
+
+
+    
 .hover-images {
   position: relative;
 }
@@ -259,8 +262,8 @@
 
 
 .product-image.tshirt {
-  position: relative; /* déjà présent normalement */
-  height: 463px;      /* fixe la hauteur pour uniformiser tous les produits */
+  position: relative;
+  height: 463px;      
 }
 
 .product-image.tshirt img {
@@ -274,7 +277,7 @@
 }
 
 .product-image.tshirt img.active {
-  opacity: 1; /* Seule l'image active est visible */
+  opacity: 1; 
 }
 
 .product-image.tshirt img {
@@ -299,7 +302,7 @@
 }
 
 .categories div {
-  cursor: pointer; /* rend le texte "cliquable" */
+  cursor: pointer;
 }
 
 .categories {
@@ -316,7 +319,7 @@
   cursor: pointer;
 }
 
-/* ===== HEADER ANIMATION PRO ===== */
+
 header {
   position: sticky;
   top: 0;
@@ -337,20 +340,20 @@ header {
 }
 
 
-/* logo */
+
 header .logo img {
   height: 120px;
   transition: height 0.4s ease;
 }
 
-/* nav */
+
 header nav {
   display: flex;
   gap: 28px;
   transition: gap 0.4s ease;
 }
 
-/* état scroll = tout se compacte */
+
 header.scrolled {
   padding: 12px 70px;
 }
@@ -527,3 +530,4 @@ document.querySelectorAll('.product-image.tshirt').forEach(productImage => {
 
 
 </html>
+
