@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Different</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { margin: 0; font-family: 'Poppins', sans-serif; background: #fff; color: #000; }
+
+
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 70px;
+      background-image: url("fond groslay.png");
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      transition: padding 0.4s ease;
+    }
+    header.scrolled { padding: 12px 70px; }
+    .logo img { height: 120px; transition: height 0.4s ease; }
+    header.scrolled .logo img { height: 90px; }
+    nav { display: flex; gap: 28px; transition: gap 0.4s ease; }
+    header.scrolled nav { gap: 18px; }
+    nav a { text-decoration: none; font-size: 0.9rem; font-weight: 600; color: #fff; text-transform: uppercase; }
+
+    
+    .contact {
+      max-width: 800px;
+      margin: auto;
+      padding: 120px 80px;
+    }
+
+    .contact h1 { font-size: 3rem; margin-bottom: 20px; }
+    .contact p { color: #666; margin-bottom: 40px; }
+
+    form {
+      display: grid;
+      gap: 25px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 16px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+    }
+
+    textarea { min-height: 160px; resize: vertical; }
+
+    button {
+      padding: 16px;
+      border-radius: 30px;
+      border: 2px solid #000;
+      background: #000;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    button:hover { background: #fff; color: #000; }
+
+    footer { padding: 30px; text-align: center; font-size: 0.75rem; color: #777; }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo"><img src="Nouveau projet (5).png" alt="Different"></div>
+  <nav>
+    <nav>
+    <a href="index.html">Acceuil</a>
+      <a href="1.html">a propos</a>
+      <a href="3.html">collaborations</a>
+      <a href="4.html">Actu</a>
+    </nav>
+  </header>
+
+
+<section class="contact">
+  <h1>Contact</h1>
+  <p>Pour collaborations, partenariats ou demandes diverses.</p>
+
+
+  <form action="admin.html" method="POST">
+    <input type="text" name="nom" placeholder="Nom / Prénom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="sujet" placeholder="Sujet">
+    <textarea name="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer la demande</button>
+  </form>
+</section>
+
+<footer>© 2025 DIFFERENT</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+</script>
+
+</body>
+
+</html>
