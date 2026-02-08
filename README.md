@@ -1,1 +1,0 @@
-Site web pour une marque de vêtements indépendante, mettant en avant son image, ses collections, ses prix et ses actualités. Comprend une page d’accueil visuelle, une page contact et des liens vers les réseaux sociaux pour mieux faire connaître la marque.
